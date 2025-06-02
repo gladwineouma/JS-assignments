@@ -80,16 +80,20 @@ function pageLoading(section){
 }
 
 async function loadPage() {
+      await pageLoading(2000)
     console.log("Loading header...")
+    
     await pageLoading(2000)
     console.log("Loading content...")
-    await pageLoading(2000)
-    console.log("Loading footer...");
+    
     await pageLoading(1000)
+    console.log("Loading footer...");
+    
     console.log("Fully loaded page");
     clearInterval(pageLoading)    
 }
 loadPage();
+
 
 
 // Pseudocode
@@ -114,6 +118,22 @@ getPrices();
 
 
 
+function loginTrial(){
+    let attempt = 0
+    while (attempt < 3)
+        attempt++
+    try{
+        const result = await new Promise((resolve, reject) => {
+            if (attempt ===3){
+                console.log("Login successfull")
+            }else {
+                console.log("Login failed")
+            }
+        },1000)
+    }
+}catch(error){
+    console.log(error)
+}finally{console.log("Login successful")};
 
 
 
